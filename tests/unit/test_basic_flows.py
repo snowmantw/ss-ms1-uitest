@@ -4,7 +4,7 @@
 from marionette_test import MarionetteTestCase
 from marionette import Actions
 
-class TestText(MarionetteTestCase):
+class TestBasicFlows(MarionetteTestCase):
 
     def setUp(self):
         # code to execute before any tests are run
