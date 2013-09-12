@@ -36,11 +36,11 @@ class TestBasicFlows(unittest.TestCase):
         assert 0 < len(rows), "Can't get any course data row on the courses page."
         for row in rows[0:5]:
             row.click()
-            self.driver.implicity_wait(3)
-            wells = self.marionette.find_elements('css selector', ".well")
+            self.driver.implicitly_wait(3)
+            wells = self.driver.find_elements_by_css_selector(".well")
             assert 0 < len(wells), "Can't navigate to the right course page."
             self.driver.back()
-            self.driver.implicity_wait(3)
+            self.driver.implicitly_wait(3)
         assert "%s/courses/" % self.siteurl == self.driver.current_url, "Can't come back to the course page."
 
 if __name__ == "__main__":
