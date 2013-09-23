@@ -6,6 +6,7 @@ import unittest
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.action_chains import ActionChains
+from selenium.webdriver.support.wait import WebDriverWait
 
 class TestBasicFlows(unittest.TestCase):
 
@@ -31,10 +32,9 @@ class TestBasicFlows(unittest.TestCase):
         btn = self.driver.find_element_by_css_selector(".btn.btn-primary.btn-large")
         btn.click()
         self.driver.implicitly_wait(3)
-
-        rows = self.driver.find_elements_by_css_selector("table.course-table tbody tr")
-        assert 0 < len(rows), "Can't get any course data row on the courses page."
-        for row in rows[0:5]:
+        for idx in range(1,5):
+            # Select each time to prevent Stale element issue.
+            row = self.driver.find_elements_by_css_selector("table.course-table tbody tr")[idx]
             row.click()
             self.driver.implicitly_wait(3)
             wells = self.driver.find_elements_by_css_selector(".well")
