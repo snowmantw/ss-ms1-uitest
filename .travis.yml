@@ -1,0 +1,14 @@
+language: python
+python:
+    - "2.7"
+install:
+    - pip install pyflakes
+script:
+    - pyflakes tests/*.py
+after_success:
+    - git clone https://github.com/snowmantw/ss-ms1.git
+    - cd ss-at1-uitest
+    - cat "$RAMDOM" > ./TRAVIS_COMMIT
+    - git commit -am '[TRAVIS AUTOMATICALLY COMMIT]'
+    - git push origin master
+
