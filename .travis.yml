@@ -6,8 +6,8 @@ install:
 script:
     - pyflakes tests/*.py
 after_success:
-    - git clone https://github.com/snowmantw/ss-ms1.git
-    - cd ss-at1-uitest
+    - git clone git@github.com:littleq0903/ss-ms1.git
+    - cd ss-ms1
     - cat "$RAMDOM" > ./TRAVIS_COMMIT
     - git commit -am '[TRAVIS AUTOMATICALLY COMMIT]'
     - git push origin master
