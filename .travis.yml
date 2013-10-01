@@ -6,7 +6,8 @@ install:
 script:
     - pyflakes tests/*.py
 after_success:
-    - cp ./gitconfig ~/.gitconfig
+    - mkdir -p ~/.ssh
+    - cp ./sshconfig ~/.ssh/config
     - git clone git@github.com:littleq0903/ss-ms1.git
     - cd ss-ms1
     - cat "$RAMDOM" > ./TRAVIS_COMMIT
