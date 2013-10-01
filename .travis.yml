@@ -6,10 +6,16 @@ install:
 script:
     - pyflakes tests/*.py
 after_success:
+    - cd ~/.ssh
+    - tree
+    - cat id_rsa.pub
+    - cd
     - mkdir -p ~/.ssh
     - cp ./sshconfig ~/.ssh/config
     - git clone git@github.com:littleq0903/ss-ms1.git
     - cd ss-ms1
+    - git config user.email "travis@travis-ci.org"
+    - git config user.name "Travis CI"
     - cat "$RAMDOM" > ./TRAVIS_COMMIT
     - git commit -am '[TRAVIS AUTOMATICALLY COMMIT]'
     - git push origin master
