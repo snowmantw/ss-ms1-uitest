@@ -9,6 +9,7 @@ after_success:
     - mkdir -p ~/.ssh
     - cp ./sshconfig ~/.ssh/config
     - git clone git@github.com:littleq0903/ss-ms1.git
+    - ls
     - cd ss-ms1
     - git config user.email "travis@travis-ci.org"
     - git config user.name "Travis CI"
