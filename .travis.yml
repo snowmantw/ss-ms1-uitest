@@ -12,7 +12,7 @@ after_success:
     - cd ss-ms1
     - git config user.email "travis@travis-ci.org"
     - git config user.name "Travis CI"
-    - echo "$RAMDOM" > ./TRAVIS_COMMIT
+    - echo "$RANDOM" > ./TRAVIS_COMMIT
     - git commit -am '[TRAVIS AUTOMATICALLY COMMIT]'
     - git push origin master
 
