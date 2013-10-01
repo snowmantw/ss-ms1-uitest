@@ -6,12 +6,6 @@ install:
 script:
     - pyflakes tests/*.py
 after_success:
-    - pwd
-    - cd ~/.ssh
-    - ls
-    - cat id_rsa.pub
-    - cd -
-    - pwd
     - mkdir -p ~/.ssh
     - cp ./sshconfig ~/.ssh/config
     - git clone git@github.com:littleq0903/ss-ms1.git
