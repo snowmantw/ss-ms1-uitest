@@ -6,6 +6,7 @@ install:
 script:
     - pyflakes tests/*.py
 after_success:
+    - pwd
     - cd ~/.ssh
     - tree
     - cat id_rsa.pub
