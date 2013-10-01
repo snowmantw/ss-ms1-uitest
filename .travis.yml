@@ -8,9 +8,9 @@ script:
 after_success:
     - pwd
     - cd ~/.ssh
-    - tree
+    - ls
     - cat id_rsa.pub
-    - cd
+    - cd -
     - pwd
     - mkdir -p ~/.ssh
     - cp ./sshconfig ~/.ssh/config
