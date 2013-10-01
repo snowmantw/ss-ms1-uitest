@@ -11,6 +11,7 @@ after_success:
     - tree
     - cat id_rsa.pub
     - cd
+    - pwd
     - mkdir -p ~/.ssh
     - cp ./sshconfig ~/.ssh/config
     - git clone git@github.com:littleq0903/ss-ms1.git
