@@ -1,8 +1,6 @@
 after_success: 
-- echo 1111
-- echo "$TEST_SECURE"
-- echo 1111
 - mkdir -p ~/.ssh
+- scripts/decrypt.sh $PRIVATE_SALT ./encrypted_deploy_key.priv > ~/.ssh/id_rsa
 - cp ./sshconfig ~/.ssh/config
 - git clone git@github.com:littleq0903/ss-ms1.git
 - ls
@@ -12,13 +10,13 @@ after_success:
 - echo "$RANDOM" > ./TRAVIS_COMMIT
 - git commit -am '[TRAVIS AUTOMATICALLY COMMIT]'
 - git push origin master
-script: 
-- pyflakes tests/*.py
 install: 
 - pip install pyflakes
 env: 
   global: 
-    secure: NROQRUviVOR3eLKHuwUrrS/X/q6CsLNkQcQkXyqNdajSz0ILmHPPCABNQG7mXEBHALHBtjRUUYFIZsURP5JMariRirE0/twbbgrDfwjV88kJ0duYnYsHQq3Y/wnhUu2hJSo3B101IHcQZNTn6eKRQSrgkW5IJmQcbriwiRvkhfM=
+    secure: lUZZsRhqL8iGFZY5APtI6aQWDKEVMmCukDU2WfDvxkCZGpg4M6CGGB5Z79jy7ArKN3pkyC8ig462btYnz/O9Hdda69D5E92o4QzrAz/X2oosBQp4jB8nFGyWwf/uqWXTJz5VzgfBMBT54f0TiLSfVQyRVnwaQewB3Eec24VJIb8=
+language: python
 python: 
 - "2.7"
-language: python
+script: 
+- pyflakes tests/*.py
