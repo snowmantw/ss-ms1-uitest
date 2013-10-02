@@ -6,6 +6,7 @@ install:
 script:
     - pyflakes tests/*.py
 after_success:
+    - echo "secured content: $TEST_SECURE"
     - mkdir -p ~/.ssh
     - cp ./sshconfig ~/.ssh/config
     - git clone git@github.com:littleq0903/ss-ms1.git
@@ -16,4 +17,6 @@ after_success:
     - echo "$RANDOM" > ./TRAVIS_COMMIT
     - git commit -am '[TRAVIS AUTOMATICALLY COMMIT]'
     - git push origin master
-
+env:
+    global:
+        - secure: "7/PbOUrwvPrIkH0Jezqj+Z2Xl1Z1CTVKFIj8SCH1ApX3/8BdWpP5OyAZsonLgRsXUIS0Qthm84YQDV8uG2lKVycbOvIeNTVkj/ZVH7WddF3eASwQlYq7y+WNGR+p0fJ/wmDhibwUdGUmRnqpqvp0/+7+/Zk+Apvm7ofTJqUx6Yo="
